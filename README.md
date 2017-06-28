@@ -18,18 +18,18 @@ Install WAMP by clicking [here] (http://www.wampserver.com/en/). Make sure you c
 ***
 ## CONFIGURATION
 
-Follow the instructions of the SetUpWizard and install WAMP with its default settings. Once it  has been installed double click on the WampServer icon on the desktop(if the create shortcut icon on desktop option was checked) or in its requisite location and ensure that Apache  and MySQL services are running. To ensure this click on Apache and from the drop down menu click on Services. The Start/Resume service option should be greyed. Similarly it can be ensured for MySQL as well. To make any change in the PHP configuration settings open wamp from C folder(default location) or wherever else it has been installed. Then select bin, php, php5.3.5 and php (file of type Configuration Settings). If any configuration changes have been made, stop and restart the MySQL and Apache services. ![MySQL Service](20170628_222830.jpg) ![Apache Service](20170628_222818.jpg
+Follow the instructions of the SetUpWizard and install WAMP with its default settings. Once it  has been installed double click on the WampServer icon on the desktop(if the create shortcut icon on desktop option was checked) or in its requisite location and ensure that Apache  and MySQL services are running. To ensure this click on Apache and from the drop down menu click on Services. The Start/Resume service option should be greyed. Similarly it can be ensured for MySQL as well. To make any change in the PHP configuration settings open wamp from C folder(default location) or wherever else it has been installed. Then select bin, php, php5.3.5 and php (file of type Configuration Settings). If any configuration changes have been made, stop and restart the MySQL and Apache services. ![MySQL Service](20170628_222830.jpg) ![Apache Service](20170628_222818.jpg)
 
 ***
 ***
 ## CHECKING FOR PROPER INSTALLATION
 
-Once WAMP has been installed, open you web browser and type localhost or 127.0.0.1 in the address bar and the WAMP home page should be opened. ![localhost page] (20170628_222859.jpg) If it shows some error, it means the installation was not properly done. 
+Once WAMP has been installed, open you web browser and type localhost or 127.0.0.1 in the address bar and the WAMP home page should be opened. ![localhost page](20170628_222859.jpg) If it shows some error, it means the installation was not properly done. 
 ***
 ***
 ## GETTING STARTED
 
-Open WAMP folder from C or its installed location and click on www. ![www folder](20170628_222232.jpg) It is the folder which should contain the files of our project.. It would already contain an index.php file which corresponds to the page which opens up when  localhost is entered in the address bar of our web browser. Copy and paste the project files in www. Type localhost/(project name) which in this case is SpiderWeb3 in the address bar of your web browser and the notice board home page which corresponds to the index.php file of the project. All projects must have an index.php file as it is the default file which is run when any project is executed. 
+Open WAMP folder from C or its installed location and click on www. ![www folder](20170628_223232.jpg) It is the folder which should contain the files of our project.. It would already contain an index.php file which corresponds to the page which opens up when  localhost is entered in the address bar of our web browser. Copy and paste the project files in www. Type localhost/(project name) which in this case is SpiderWeb3 in the address bar of your web browser and the notice board home page which corresponds to the index.php file of the project. All projects must have an index.php file as it is the default file which is run when any project is executed. 
 
 ***
 ***
