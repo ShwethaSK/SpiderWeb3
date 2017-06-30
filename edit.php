@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Edit Database
+	</title>
+	<style type="text/css">
+		body{
+			background-color: rosybrown;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+</body>
+</html>
 <?php
 $con=mysql_connect("localhost","root","");
 mysql_select_db("test",$con);
@@ -16,6 +32,8 @@ while($i<$row)
 	echo "<td>$fullname</td>"; 
 	echo "<td><a href='edit_access.php?id=$userId'>EDIT</a></td>";
 	echo "<td><a href='delete.php?id=$userId'>X</a></td>";
+	echo "<td><a href='moderate.php?id=$userId'>MODERATE</a></td>";
 $i++;
 }
+ echo "<a href='profile.php'>Click here to go back to profile</a>";
 ?>

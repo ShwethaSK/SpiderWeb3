@@ -4,6 +4,12 @@
 	<title>
 		Bulletin Board
 	</title>
+	<style type="text/css">
+		body{
+			font-family: cursive;
+			background-color: plum;
+		}
+	</style>
 	<script type="text/javascript">
 	var x1=0;
 		function add_notes()
@@ -66,6 +72,11 @@ echo '<input type="button" name="Add_notes" value="Add Notes" onclick="add_notes
 echo '<input type="button" name="Edit_notes" value="Edit Notes" onclick="edit_notes()" />';
 echo '<input type="button" name="Save_notes" value="Save Notes" onclick="save_notes()" /><br /><hr />';
 echo '<a href="edit.php">Click here to edit Database</a><hr />';
+}
+if(strcmp($rows['userrole'], "CLASS_REP")==0)
+{
+echo '<input type="button" name="Add_assgnmnt" value="Add assignments" onclick="add_notes()" />';
+echo '<input type="button" name="save_assgnmnt" value="Save assignments" onclick="save_notes()"/><br /><hr />';
 }
 
 ?>

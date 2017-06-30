@@ -4,6 +4,12 @@
 	<title>
 		Edit access level
 	</title>
+	<style type="text/css">
+		body{
+			background-color: thistle;
+			font-weight: bold;
+		}
+	</style>
 </head>
 <body>
 <?php
@@ -25,7 +31,7 @@ if(isset($_GET['id']))
 	$result=mysql_fetch_array($query1);
 	?>
 	<form method="POST" action="">
-	AccessLevel:<input type="text" name="userrole" value=" <?php echo $result['userrole']; ?>" /><br />
+	AccessLevel:<input type="text" name="userrole" value=" <?php echo $result['userrole']; ?>" />ADMIN/STUDENT/CLASS_REP<br />
 	<input type="submit" name="submit" value="update"/>
 	</form>
 	<?php

@@ -7,6 +7,7 @@
 	<style type="text/css">
 		body{
 			background-color: lightyellow;
+      font-weight: bold;
 		}
 		h1,h3{
 			color:red;
@@ -58,6 +59,7 @@ define('DB_PASSWORD','');
   mysql_query("CREATE TABLE WebsiteUsers
   	(
   	userId int(9) NOT NULL auto_increment,
+    moderated VARCHAR(50) DEFAULT 'NO',
     userrole VARCHAR(50) DEFAULT 'STUDENT',
   	fullname VARCHAR(50) NOT NULL,
   	username VARCHAR(40) NOT NULL,

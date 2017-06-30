@@ -1,5 +1,4 @@
 	<!DOCTYPE html>
-	<!DOCTYPE html>
 	<html>
 	<head>
 		<title>
@@ -7,7 +6,9 @@
 		</title>
 		<style type="text/css">
 			body{
-				color: lightblue;
+				background-color: lightblue;
+				color: red;
+				font-weight: bold;
 			}
 		</style>
 	</head>
@@ -38,7 +39,7 @@
 	$data = mysql_query ($query)or die(mysql_error());
 	if($data)
 	{
-	echo "YOUR REGISTRATION IS COMPLETED...<br />";
+	echo "YOUR REGISTRATION IS COMPLETED...<br /><br />";
 	echo "<a href='index.php'>Click here to go back to homepage</a>";
 	}
 	}

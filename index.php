@@ -17,6 +17,7 @@
 	body{
 		background-image: url(NITT.jpg);
 		background-position: 50% 50%;
+		font-family: Arial;
 	}
 	</style>
 </head>

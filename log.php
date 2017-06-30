@@ -3,8 +3,14 @@
 <head>
 <style type="text/css">
 	body{
-		background-color: lightblue;
+		background-color: burlywood;
+		font-weight: bold;
+	}
+	h1{
 		color: red;
+	}
+	h3{
+		color:red;
 	}
 </style>
 	<title>
