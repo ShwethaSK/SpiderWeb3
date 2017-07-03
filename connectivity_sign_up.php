@@ -17,11 +17,12 @@
 	</html>
 	<?php 
 	define('DB_HOST', 'localhost');
-	define('DB_NAME', 'test');
+	define('DB_NAME', 'sys');
 	define('DB_USER','root');
 	define('DB_PASSWORD','');
-	$con=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysql_error()); 
-	$db=mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_error());
+	$con=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysqli_error()); 
+	$db=mysqli_select_db($con,DB_NAME) or die("Failed to connect to MySQL: " . mysqli_error($con));
+
 	function NewUser()
 	{
 	$fullname = $_POST['name'];
@@ -36,7 +37,9 @@
 	{		
 	$query = "INSERT INTO websiteusers (fullname,username,email,pass) VALUES ('$fullname','$userName','$email',SHA('$password'))";
     }
-	$data = mysql_query ($query)or die(mysql_error());
+    $con=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysqli_error()); 
+	$db=mysqli_select_db($con,DB_NAME) or die("Failed to connect to MySQL: " . mysqli_error($con));
+	$data = mysqli_query ($con,$query)or die(mysqli_error());
 	if($data)
 	{
 	echo "YOUR REGISTRATION IS COMPLETED...<br /><br />";
@@ -45,10 +48,12 @@
 	}
 	function SignUp()
 	{
+		$con=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysqli_error()); 
+	$db=mysqli_select_db($con,DB_NAME) or die("Failed to connect to MySQL: " . mysqli_error($con));
 	if(!empty($_POST['username']))
 	{ 
-	$query = mysql_query("SELECT * FROM websiteusers WHERE userName = '$_POST[username]' AND pass = '$_POST[pass]'") or die(mysql_error());
-	if(!$row = mysql_fetch_array($query))
+	$query = mysqli_query($con,"SELECT * FROM websiteusers WHERE userName = '$_POST[username]' AND pass = '$_POST[pass]'") or die(mysqli_error($con));
+	if(!$row = mysqli_fetch_array($query))
 	{
 	NewUser();
 	}
@@ -61,6 +66,10 @@
 	}
 	if(isset($_POST['submit'])) 
 	{
+	//	session_start();
+	//	include('captcha.php');
+//		if($_POST['captcha']!=$_SESSION['digit'])die("Sorry, the CAPTCHA code entered was incorrect");
+//		else
 	SignUp();
 	}
 	?>

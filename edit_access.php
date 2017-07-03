@@ -13,22 +13,26 @@
 </head>
 <body>
 <?php
-$con=mysql_connect("localhost","root","");
-mysql_select_db("test",$con);
+$con=mysqli_connect("localhost","root","");
+mysqli_select_db($con,"sys");
 if(isset($_GET['id']))
 {
 	$id=$_GET['id'];
 	if(isset($_POST['submit']))
 	{
 	$userrole=$_POST['userrole'];
-		$update=mysql_query("UPDATE WebsiteUsers SET userrole='$userrole' WHERE userId='$id'");
+		$update=mysqli_query($con,"UPDATE WebsiteUsers SET userrole='$userrole' WHERE userId='$id'");
 		if($update)
 		{
 			header('location:edit.php');
 		}
 	}
-	$query1=mysql_query("SELECT * FROM WebsiteUsers WHERE userId='$id'");
-	$result=mysql_fetch_array($query1);
+	$query1=mysqli_query($con,"SELECT * FROM WebsiteUsers WHERE userId='$id'");
+	if(!$query1)
+	{
+		die('Invalid query:' .mysqli_error($con));
+	}
+	$result=mysqli_fetch_array($query1,MYSQLI_NUM);
 	?>
 	<form method="POST" action="">
 	AccessLevel:<input type="text" name="userrole" value=" <?php echo $result['userrole']; ?>" />ADMIN/STUDENT/CLASS_REP<br />

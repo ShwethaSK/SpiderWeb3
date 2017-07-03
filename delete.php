@@ -9,13 +9,12 @@
 </body>
 </html>
 <?php
-$con=mysql_connect("localhost","root","");
-mysql_select_db("test",$con);
+$con=mysqli_connect("localhost","root","");
+mysqli_select_db($con,"sys");
 if(isset($_GET['id']))
 {
 	$id=$_GET['id'];
-	$query=mysql_query("DELETE FROM WebsiteUsers WHERE userId='$id'");
-	echo $query;
+	$query=mysqli_query($con,"DELETE FROM WebsiteUsers WHERE userId='$id'");
 	if($query)
 	{
 		header('location:edit.php');

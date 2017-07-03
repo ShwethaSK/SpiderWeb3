@@ -15,18 +15,24 @@
 </body>
 </html>
 <?php
-$con=mysql_connect("localhost","root","");
-mysql_select_db("test",$con);
+$con=mysqli_connect("localhost","root","");
+mysqli_select_db($con,"sys");
 $c=1;
-$query1=mysql_query("SELECT userId,userrole,fullname FROM WebsiteUsers",$con) or die(mysql_error());
+$query1=mysqli_query($con,"SELECT userId,userrole,fullname FROM WebsiteUsers") or die(mysqli_error());
 echo '<table><tr><td>USERID   </td><td>   ACCESSLEVEL</td><td>   NAME</td><td></td><td></td>' ;
-$row=mysql_num_rows($query1);
+$row=mysqli_num_rows($query1);
 $i=0;
+function mysqli_result($result, $row, $field=0)
+{
+	$result->data_seek($row);
+	$data=$result->fetch_array();
+	return $data[$field];
+}
 while($i<$row)
 {
-	$userId=mysql_result($query1, $i,"userId");
-	$userrole=mysql_result($query1, $i, "userrole");
-	$fullname=mysql_result($query1, $i, "fullname");
+	$userId=mysqli_result($query1, $i,"userId");
+	$userrole=mysqli_result($query1, $i, "userrole");
+	$fullname=mysqli_result($query1, $i, "fullname");
 	echo "<tr><td>$userId</td>";
 	echo "<td>$userrole</td>";
 	echo "<td>$fullname</td>"; 

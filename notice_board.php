@@ -9,6 +9,12 @@
 			font-family: cursive;
 			background-color: plum;
 		}
+		#admin_classr{
+			display: none;
+		}
+		#display{
+			display: normal;
+		}
 	</style>
 	<script type="text/javascript">
 	var x1=0;
@@ -20,6 +26,18 @@
 	     var x=prompt("Please enter your note","User");
 	     textnode=document.createTextNode(x);
 	     DIV.appendChild(textnode);
+	     node=document.getElementById("div");
+	     node.appendChild(DIV);
+		}
+		function add_image()
+		{
+			x1++;
+			this.img=document.createElement("img");
+			var x=prompt("Please enter your image URL","URL");
+			this.img.src=x;
+			DIV=document.createElement("LI");
+	     DIV.setAttribute("id","DIV"+x1);
+	     DIV.appendChild(this.img);
 	     node=document.getElementById("div");
 	     node.appendChild(DIV);
 		}
@@ -50,10 +68,10 @@
 <body onload="checkEdits()">
 <h1>Notices...
 </h1>
-<ol>
+<u1>
 <div id="div">
 </div>
-</ol>
+</u1>
 <a href="profile.php">Click here to go back to my profile</a>
 <br />
 <hr />
@@ -61,22 +79,22 @@
 </html>
 <?php
 include('session.php');
-$connection = mysql_connect("localhost", "root", "");
-$db = mysql_select_db("test", $connection);
-$query = mysql_query("SELECT userrole FROM WebsiteUsers WHERE userName='$user_check'", $connection) or die(mysql_error());
-$rows = mysql_fetch_assoc($query);
+$connection = mysqli_connect("localhost", "root", "");
+$db = mysqli_select_db($connection,"sys");
+$query = mysqli_query($connection,"SELECT userrole,moderated FROM WebsiteUsers WHERE userName='$user_check'") or die(mysql_error());
+$rows = mysqli_fetch_assoc($query);
 $rows['userrole']=trim($rows['userrole']);
 if(strcmp($rows['userrole'],"ADMIN")==0)
 { 
 echo '<input type="button" name="Add_notes" value="Add Notes" onclick="add_notes()" />';
 echo '<input type="button" name="Edit_notes" value="Edit Notes" onclick="edit_notes()" />';
+echo '<input type="button" name="Add_image" value="Add image" onclick="add_image()" />';
 echo '<input type="button" name="Save_notes" value="Save Notes" onclick="save_notes()" /><br /><hr />';
 echo '<a href="edit.php">Click here to edit Database</a><hr />';
 }
-if(strcmp($rows['userrole'], "CLASS_REP")==0)
+else if(strcmp($rows['userrole'], "CLASS_REP")==0)
 {
 echo '<input type="button" name="Add_assgnmnt" value="Add assignments" onclick="add_notes()" />';
-echo '<input type="button" name="save_assgnmnt" value="Save assignments" onclick="save_notes()"/><br /><hr />';
+echo '<input id ="class_rep" type="button" name="save_assgnmnt" value="Save assignments" onclick="save_notes()"/><br /><hr />';
 }
-
 ?>
